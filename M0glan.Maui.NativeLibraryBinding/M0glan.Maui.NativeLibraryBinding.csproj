@@ -16,10 +16,13 @@
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.m0glan.maui.nativelibrarybinding</ApplicationId>
 		<ApplicationIdGuid>41004BD9-1240-4675-AF7D-CA69647C22F5</ApplicationIdGuid>
-
+		
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -38,6 +41,18 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\lib\android\x86_64\libMathFuncs.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidNativeLibrary Include="Resources\lib\android\x86_64\libMathFuncs.so" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MathFuncs\MathFuncs.csproj" />
 	</ItemGroup>
 
 </Project>
