@@ -11,7 +11,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>M0glan.Maui.NativeLibraryBinding</ApplicationTitle>
+		<ApplicationTitle>NativeLibsDemo</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.m0glan.maui.nativelibrarybinding</ApplicationId>
